@@ -7,6 +7,9 @@
 > 
 > * installs sealion
 > * configures service
+> 
+> Note: Tests are failing due to invalid key
+
 
 ## Installation
 
