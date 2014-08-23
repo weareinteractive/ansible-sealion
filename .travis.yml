@@ -11,4 +11,4 @@ script:
   - echo localhost > inventory
   - ln -s ansible-sealion ../franklinkim.sealion
   - ansible-playbook --syntax-check -i inventory test.yml
-  - ansible-playbook -i inventory test.yml --connection=local --sudo -vvvv
+  - test "$(ansible-playbook -i inventory test.yml --connection=local --sudo -vvvv | tee /dev/tty | grep "stderr: Failed to register agent; Error 203011; No organization with specified orgToken found.")" != ""

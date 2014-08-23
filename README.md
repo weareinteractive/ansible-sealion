@@ -28,12 +28,6 @@ Using `git`:
 $ git clone https://github.com/weareinteractive/ansible-sealion.git
 ```
 
-## Dependencies
-
-* Tested with Apache 2.2 | 2.4
-* [franklinkim.openssl](https://github.com/weareinteractive/ansible-openssl)
-* [franklinkim.htpasswd](https://github.com/weareinteractive/ansible-htpasswd)
-
 ## Variables
 
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
