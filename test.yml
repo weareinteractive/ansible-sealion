@@ -1,0 +1,7 @@
+---
+
+- hosts: all
+  roles:
+    - franklinkim.sealion
+  vars:
+    sealion_key: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
