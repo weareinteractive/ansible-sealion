@@ -36,43 +36,14 @@ $ git clone https://github.com/weareinteractive/ansible-sealion.git
 Here is a list of all the default variables for this role, which are also available in `defaults/main.yml`.
 
 ```
-# ports to listen to
-apache2_ports: [80]
-# ssl ports to listen to
-apache2_ssl_ports: [443]
-# addresses to listen to (2.2  only)
-apache2_listen_addresses: ['*']
-# enabled/disabled modules
-apache2_modules: []
-# enabled/disabled confs
-apache2_confs: []
-# enabled/disabled sites
-apache2_sites: []
-# remove the default host
-apache2_remove_default: no
-# start on boot
-apache2_service_enabled: yes
-# current state: started, stopped
-apache2_service_state: started
-# set to one of:  Full | OS | Minimal | Minor | Major | Prod
-apache2_server_tokens: Prod
-# set to one of:  On | Off | EMail
-apache2_server_signiture: 'Off'
-# set to one of:  On | Off | extended
-apache2_trace_enable: 'Off'
-```
-
-Module and confs might be defined through:
-
-```
 # sealion key
 sealion_key:
 # sealion version
 sealion_version: 3.0.10
 # start on boot
-apache2_service_enabled: yes
+sealion_service_enabled: yes
 # current state: started, stopped
-apache2_service_state: started
+sealion_service_state: started
 ```
 
 ## Handlers
@@ -96,8 +67,8 @@ These can be included into your site definitions.
 ## Testing
 
 ```
-$ git clone https://github.com/weareinteractive/ansible-apache2.git
-$ cd ansible-apache2
+$ git clone https://github.com/weareinteractive/ansible-sealion.git
+$ cd ansible-sealion
 $ vagrant up
 ```
 
