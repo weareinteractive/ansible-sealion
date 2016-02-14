@@ -1,14 +1,32 @@
 ---
-
 language: python
 python: "2.7"
-before_install:
- - sudo apt-get update -qq
- - sudo apt-get install -qq python-apt python-pycurl
+
+# Use the new container infrastructure
+sudo: false
+
+# Install ansible
+addons:
+  apt:
+    packages:
+    - python-pip
+
 install:
+  # Install ansible
   - pip install ansible
+
+  # Check ansible version
+  - ansible --version
+
+  # Create ansible.cfg with correct roles_path
+  - printf '[defaults]\nroles_path=../' >ansible.cfg
+
+  # Fix role name
+  - ln -s ./ ../weareinteractive.sealion
+
 script:
-  - echo localhost > inventory
-  - ln -s ansible-sealion ../franklinkim.sealion
-  - ansible-playbook --syntax-check -i inventory test.yml
-  - ansible-playbook -i inventory test.yml --connection=local --sudo -vvvv 2> /dev/null | tee
+  # Basic role syntax check
+  - ansible-playbook tests/main.yml -i tests/inventory --syntax-check
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

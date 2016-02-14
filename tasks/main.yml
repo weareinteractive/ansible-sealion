@@ -1,4 +1,15 @@
 ---
 
 - include: install.yml
+  tags:
+    - monitoring
+    - sealion
+    - install
+    - sealion-install
+
 - include: service.yml
+  tags:
+    - monitoring
+    - sealion
+    - service
+    - sealion-service

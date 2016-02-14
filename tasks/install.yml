@@ -1,71 +1,44 @@
 ---
 
 - name: Checking key
-  fail: msg="Please provide a sealion_key!"
+  fail:
+    msg: "Please provide a sealion_key!"
   when: sealion_key == ""
-  tags:
-    - monitoring
-    - sealion
-    - install
 
 - name: Creating source folder
-  file: >
-    path=/usr/local/src/sealion
-    state=directory
-    owner=root
-    group=root
-    mode=0755
-  tags:
-    - monitoring
-    - sealion
-    - install
+  file:
+    path: /usr/local/src/sealion
+    state: directory
+    owner: root
+    group: root
+    mode: "0755"
 
 - name: Checking sources
-  stat: path=/usr/local/src/sealion/sealion-agent-{{ sealion_version }}-noarch.tar.gz
+  stat:
+    path: "/usr/local/src/sealion/sealion-agent-{{ sealion_version }}-noarch.tar.gz"
   register: sealion_source_file
-  tags:
-    - monitoring
-    - sealion
-    - install
 
 - name: Downloading sources
-  get_url: >
-    url=https://s3.amazonaws.com/sealion.com/{{ sealion_version }}/sealion-agent-{{ sealion_version }}-noarch.tar.gz
-    dest=/usr/local/src/sealion/sealion-agent-{{ sealion_version }}-noarch.tar.gz
+  get_url:
+    url: "https://s3.amazonaws.com/sealion.com/{{ sealion_version }}/sealion-agent-{{ sealion_version }}-noarch.tar.gz"
+    dest: "/usr/local/src/sealion/sealion-agent-{{ sealion_version }}-noarch.tar.gz"
   when: not sealion_source_file.stat.exists
-  tags:
-    - monitoring
-    - sealion
-    - install
 
 - name: Unpacking sources
-  command: >
-    tar -xvzf sealion-agent-{{ sealion_version }}-noarch.tar.gz
-    chdir=/usr/local/src/sealion
-    creates=/usr/local/src/sealion/sealion-agent
+  unarchive:
+    src: "/usr/local/src/sealion/sealion-agent-{{ sealion_version }}-noarch.tar.gz"
+    dest: /usr/local/src/sealion
+    copy: no
   when: not sealion_source_file.stat.exists
-  tags:
-    - monitoring
-    - sealion
-    - install
 
 - name: Installing sealion
   command: >
-    ./install.sh -o {{ sealion_key }}
+    ./install.sh --no-start -o {{ sealion_key }}
     chdir=/usr/local/src/sealion/sealion-agent
     creates=/etc/init.d/sealion
   when: not sealion_source_file.stat.exists
-  tags:
-    - monitoring
-    - sealion
-    - install
 
 - name: Cleaning up
-  file: >
-    path=/usr/local/src/sealion/sealion-agent
-    state=absent
-  tags:
-    - monitoring
-    - sealion
-    - install
-
+  file:
+    path: /usr/local/src/sealion/sealion-agent
+    state: absent

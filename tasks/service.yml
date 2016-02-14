@@ -1,11 +1,7 @@
 ---
 
 - name: Configuring service
-  service: >
-    name=sealion
-    state={{ sealion_service_state }}
-    enabled={{ sealion_service_enabled }}
-  tags:
-    - monitoring
-    - sealion
-    - service
+  service:
+    name: sealion
+    state: "{{ sealion_service_state }}"
+    enabled: "{{ sealion_service_enabled }}"

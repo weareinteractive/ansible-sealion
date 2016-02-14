@@ -1,0 +1,17 @@
+---
+
+galaxy_name: weareinteractive.sealion
+github_user: weareinteractive
+github_name: ansible-sealion
+badges: |
+  [![Build Status](https://img.shields.io/travis/weareinteractive/ansible-sealion.svg)](https://travis-ci.org/weareinteractive/ansible-sealion)
+  [![Galaxy](http://img.shields.io/badge/galaxy-weareinteractive.sealion-blue.svg)](https://galaxy.ansible.com/weareinteractive/sealion)
+  [![GitHub Tags](https://img.shields.io/github/tag/weareinteractive/ansible-sealion.svg)](https://github.com/weareinteractive/ansible-sealion)
+  [![GitHub Stars](https://img.shields.io/github/stars/weareinteractive/ansible-sealion.svg)](https://github.com/weareinteractive/ansible-sealion)
+description: |
+  > * installs sealion
+  > * configures service
+
+  **Note:**
+
+  > Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.sealion` to `weareinteractive.sealion`!
