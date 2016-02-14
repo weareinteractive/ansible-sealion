@@ -22,7 +22,7 @@ install:
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
   # Fix role name
-  - ln -s ./ ../franklinkim.sealion
+  - ln -s ansible-sealion ../franklinkim.sealion
 
 script:
   # Basic role syntax check
