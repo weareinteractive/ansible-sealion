@@ -21,6 +21,9 @@ install:
   # Create ansible.cfg with correct roles_path
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
+  # Fix role name
+  - ln -s ./ ../franklinkim.sealion
+
 script:
   # Basic role syntax check
   - ansible-playbook tests/main.yml -i tests/inventory --syntax-check
