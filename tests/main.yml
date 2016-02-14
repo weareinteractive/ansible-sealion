@@ -4,6 +4,6 @@
   roles:
     - franklinkim.sealion
   vars:
-    sealion_service_state: stopped
     sealion_service_enabled: no
+    sealion_service_state: stopped
     sealion_key: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
