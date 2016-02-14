@@ -1,6 +1,7 @@
 ---
-# For more information about handlers see:
-# http://www.ansibleworks.com/docs/playbooks.html#handlers-running-operations-on-change
 
 - name: restart sealion
-  service: name=sealion state=restarted
+  service:
+    name: sealion
+    state: restarted
+  when: sealion_service_state != 'stopped'
