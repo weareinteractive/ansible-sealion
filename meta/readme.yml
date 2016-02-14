@@ -1,6 +1,6 @@
 ---
 
-galaxy_name: franklinkim.sealion
+galaxy_name: weareinteractive.sealion
 github_user: weareinteractive
 github_name: ansible-sealion
 badges: |
@@ -12,4 +12,6 @@ description: |
   > * installs sealion
   > * configures service
 
-  Note: Since Ansible now supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release), this role has moved from `franklinkim.sealion` to `weareinteractive.sealion`!
+  **Note:**
+
+  > Since Ansible Galaxy supports [organization](https://www.ansible.com/blog/ansible-galaxy-2-release) now, this role has moved from `franklinkim.sealion` to `weareinteractive.sealion`!
