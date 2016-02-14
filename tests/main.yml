@@ -2,7 +2,7 @@
 
 - hosts: all
   roles:
-    - franklinkim.sealion
+    - weareinteractive.sealion
   vars:
     sealion_service_enabled: no
     sealion_service_state: stopped
