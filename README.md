@@ -44,15 +44,15 @@ Here is a list of all the default variables for this role, which are also availa
 
 ```yaml
 ---
-
 # sealion key
 sealion_key:
 # sealion version
-sealion_version: 3.0.10
+sealion_version: 3.5.1
 # start on boot
 sealion_service_enabled: yes
 # current state: started, stopped
 sealion_service_state: started
+
 ```
 
 ## Handlers
@@ -61,7 +61,6 @@ These are the handlers that are defined in `handlers/main.yml`.
 
 ```yaml
 ---
-
 - name: restart sealion
   service:
     name: sealion
@@ -80,20 +79,21 @@ This is an example playbook:
 
 - hosts: all
   roles:
-    - franklinkim.sealion
+    - weareinteractive.sealion
   vars:
-    sealion_service_state: stopped
     sealion_service_enabled: no
+    sealion_service_state: stopped
     sealion_key: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 
 ```
+
 
 ## Testing
 
 ```shell
 $ git clone https://github.com/weareinteractive/ansible-sealion.git
 $ cd ansible-sealion
-$ vagrant up
+$ make test
 ```
 
 ## Contributing
