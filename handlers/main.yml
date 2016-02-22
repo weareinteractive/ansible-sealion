@@ -1,5 +1,4 @@
 ---
-
 - name: restart sealion
   service:
     name: sealion
